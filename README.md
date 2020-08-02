@@ -10,34 +10,34 @@ A Spritekit Framework Protocol Based to make our lives easier handling gestures 
 
 
 ## Protocols
-- protocol TouchableSKNode:SKNode
+- protocol TouchableSKNode
     - Just mark your node as touchable
 
-- protocol TapableSKNode:TouchableSKNode
+- protocol TapableSKNode
     - Mark your node as able to receive TAP gesture
         
-- protocol TapableToogleSelectedSKNode:TapableSKNode
+- protocol TapableToogleSelectedSKNode
     - Executes func toogleSelected() on single tap
 
 - protocol PannableSKNode
     - Handles PAN gesture, moving node
         
-- protocol PannableLimitInScreenSKNode:PannableSKNode
+- protocol PannableLimitInScreenSKNode
     - Make the node return to first full visible position at end of PAN
         
-- protocol PannableRemoveOutScreenSKNode:PannableSKNode
+- protocol PannableRemoveOutScreenSKNode
     - remove node from Scene if invisible at the end of TAP
         
-- protocol PannableHaveInertia:PannableSKNode
+- protocol PannableHaveInertia
     - Execute PAN inertia movement depending on pan velocity and friction parameter
 
-- protocol ScalableSKNode:TouchableSKNode
+- protocol ScalableSKNode
     - Make node Pinch Scalable
     
-- protocol ScalableFitScrenSKNode:ScalableSKNode
+- protocol ScalableFitScrenSKNode
     - Reduce to Fit node in scene at the end of scale, if result is a node bigger than scene
     
-- protocol ScalableFillScrenSKNode:ScalableSKNode
+- protocol ScalableFillScrenSKNode
     - Reduce to Fill node in scene at the end of scale, if result is a node bigger than scene
 
 
