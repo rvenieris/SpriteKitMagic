@@ -9,13 +9,14 @@
 import SpriteKit
 
 class SKMyCircle:	SKShapeNode,
-					ScalableFillScrenSKNode,
+					ScalableSKNode,
+//					ScalableFillScrenSKNode,
 					PannableSKNode,
-					RotatableSKNode,
+//					RotatableSKNode,
 					PannableHaveInertia,
 					PannableRemoveOutScreenSKNode,
 					PannableLimitInScreenSKNode,
-					TapableToogleSelectedSKNode
+					TapableToggleSelectedSKNode
 {
 	init(radius:CGFloat = 100) {
 		super.init()
@@ -27,22 +28,21 @@ class SKMyCircle:	SKShapeNode,
 		self.name = "BolineaDeGolfe"
 		
 	}
+	
 	private lazy var selectedFrame:SKNode = {
 		let sf = SKSpriteNode(color: .red, size: self.frame.size)
-		self.alpha = 0.3
+//		sf.setScale(self.xScale)
+		sf.alpha = 0.3
 		return sf
 	}()
 	
-	func toogleSelected() {
+	func toggleSelected() {
 		if let _ = selectedFrame.parent {
 			selectedFrame.removeFromParent()
 		} else {
 			self.addChild(selectedFrame)
 		}
 	}
-	
-	
-
 	
 	required init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")

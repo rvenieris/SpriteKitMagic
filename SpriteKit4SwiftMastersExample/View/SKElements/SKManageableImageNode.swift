@@ -11,7 +11,7 @@ import SpriteKit
 class SKManageableImageNode:SKSpriteNode,
 							ScalableFillScrenSKNode,
 							PannableSKNode,
-							RotatableSKNode,
+//							RotatableSKNode,
 							PannableHaveInertia,
 							PannableLimitInScreenSKNode
 {
@@ -22,7 +22,6 @@ class SKManageableImageNode:SKSpriteNode,
 		super.init(texture: texture, color: .red, size: texture.size())
 		self.name = imageNamed
 		self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-		
 		self.isUserInteractionEnabled = true
 	}
 	

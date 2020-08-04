@@ -13,8 +13,8 @@ protocol TouchableSKNode:SKNode {}
 
 // MARK: Tap managemenet
 protocol TapableSKNode:TouchableSKNode {}
-protocol TapableToogleSelectedSKNode:TapableSKNode {
-	func toogleSelected()
+protocol TapableToggleSelectedSKNode:TapableSKNode {
+	func toggleSelected()
 }
 
 // MARK: Pan managemenet
@@ -72,19 +72,37 @@ extension ScalableSKNode {
 
 extension ScalableFitScrenSKNode {
 	func scaleUpScreen() {
+		self.scaleUpScreen(3)
+	}
+	private func scaleUpScreen(_ retries:Int) {
 		guard scaleValueToFitScreen > self.xScale &&
 		      scaleValueToFitScreen > self.yScale else {return}
 		let animation = SKAction.scale(by: scaleValueToFitScreen, duration: 0.1)
-		self.run(animation)
+		self.run(animation, completion: {
+			if self.scaleValueToFitScreen > 1 && retries > 0 {
+				self.scaleUpScreen(retries-1)
+			} else {
+				(self as? PannableLimitInScreenSKNode)?.bounceBackIfOffScreen()
+			}
+		})
 	}
 }
 
 extension ScalableFillScrenSKNode {
 	func scaleUpScreen() {
+		self.scaleUpScreen(3)
+	}
+	private func scaleUpScreen(_ retries:Int) {
 		guard scaleValueToFillScreen > self.xScale ||
 			  scaleValueToFillScreen > self.yScale else {return}
 		let animation = SKAction.scale(by: scaleValueToFillScreen, duration: 0.1)
-		self.run(animation)
+		self.run(animation, completion: {
+			if self.scaleValueToFillScreen > 1 && retries > 0 {
+				self.scaleUpScreen(retries-1)
+			} else {
+				(self as? PannableLimitInScreenSKNode)?.bounceBackIfOffScreen()
+			}
+		})
 	}
-
+	
 }

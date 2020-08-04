@@ -78,7 +78,7 @@ class HandledGestureSKScene: SKScene, UIGestureRecognizerDelegate {
 	func handle(singleTap gesture: UITapGestureRecognizer) {
 		switch gesture.state {
 			case .ended:
-				(lastTouchedNode as? TapableToogleSelectedSKNode)?.toogleSelected()
+				(lastTouchedNode as? TapableToggleSelectedSKNode)?.toggleSelected()
 			lastTouchedNode = nil
 			default: // ended, cancelled, etc
 				break
