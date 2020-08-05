@@ -25,8 +25,6 @@ class SKMyCircle:	SKShapeNode,
 		path = myPath
 		self.fillColor = .blue
 		self.isUserInteractionEnabled = true
-		self.name = "BolineaDeGolfe"
-		
 	}
 	
 	private lazy var selectedFrame:SKNode = {

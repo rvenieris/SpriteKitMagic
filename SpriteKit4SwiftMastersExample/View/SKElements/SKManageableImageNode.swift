@@ -11,7 +11,7 @@ import SpriteKit
 class SKManageableImageNode:SKSpriteNode,
 							ScalableFillScrenSKNode,
 							PannableSKNode,
-//							RotatableSKNode,
+							RotatableSKNode,
 							PannableHaveInertia,
 							PannableLimitInScreenSKNode
 {
